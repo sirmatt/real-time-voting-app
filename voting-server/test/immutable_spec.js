@@ -46,9 +46,9 @@ describe('Immutability', () => {
   describe('an immutable tree(map)', () => {
 
     function addMovie(currentState, newMovie) {
-      return currentState.set(
-        'movies',
-        currentState.get('movies').push(newMovie));
+      return currentState.update('movies', movies =>
+        movies.push(newMovie)
+      );
     }
 
     it('is immutable fersure', () => {
@@ -68,7 +68,7 @@ describe('Immutability', () => {
         movies: List.of('Kill Bill', 'Pulp Fiction')
       }));
     });
-    
+
   });
 
 });
